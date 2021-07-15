@@ -11,7 +11,8 @@ import com.todomodel.Todo;
 import com.tododao.TodoDAO;
 @Controller    
 public class TodoController {
-  @Autowired    
+ 
+	@Autowired    
   TodoDAO dao;
   
   @RequestMapping("/todoform")    
@@ -31,7 +32,8 @@ public class TodoController {
       return "viewtodo";    
   } 
   @RequestMapping(value="/editemp/{id}")    
-  public String edit(@PathVariable int id, Model m){    
+  public String edit(@PathVariable int id, Model m){   
+	 
       Todo todo=dao.getTodoById(id);    
       m.addAttribute("command",todo);  
       return "todoeditform";    
@@ -47,3 +49,4 @@ public class TodoController {
       return "redirect:/viewtodo";    
   }   
 }
+
